@@ -88,7 +88,7 @@ function tryToAssignEmail(){
         addNewEmail();
     }
     email.value = '';
-    
+    settingRandomIdUrl()
 }
 
 assignButton.addEventListener('click', tryToAssignEmail)
@@ -136,6 +136,7 @@ function clearData(allData){
 }
 
 checkButton.addEventListener('click', function(){
+    successMessage.classList.remove('show-message')
     successMessage2.classList.remove('show-message')
     clearData()
     createImagesForEmail(email.value) 
