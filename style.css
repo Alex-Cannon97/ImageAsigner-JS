@@ -145,7 +145,7 @@ input[type="email"]{
 }
 
 .refresh{
-    position: fixed;
+    position: absolute;
     top: 4%;
     left: 350px; 
     font-size: 20px;
@@ -155,7 +155,7 @@ input[type="email"]{
 }
 
 .refresh-btn{
-    position: fixed;
+    position: absolute;
     top: 30%;
     left: 350px;
 }
