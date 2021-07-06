@@ -154,10 +154,13 @@ input[type="email"]{
 
 
 .saved-img{
- display: flex;
  width: auto;
  margin-top: 100px;
- align-items: center;
+}
+
+.saved-img div{
+    width: 100%;
+    display: block;
 }
 
 .saved-img img{
@@ -166,6 +169,11 @@ input[type="email"]{
     box-shadow: 10px 10px 8px #00000075;
     margin-left: 10px;
     margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.saved-img h3{
+    margin-left: 10px;
 }
 
 .email-name{
@@ -173,23 +181,4 @@ input[type="email"]{
     font-size: 25px;
     padding-bottom: 30px;
 
-}
-
-
-.success-message2{
-    color: green;
-    bottom: 140%;
-    position: fixed;
-    right: 12%;
-    border: 2px solid black;
-    padding: 10px;
-    background-color: white;
-    z-index: 1;
-    text-align: center;
-
-}
-
-.image-cont{
-    width: auto;
-    height: auto;
 }

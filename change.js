@@ -5,9 +5,16 @@ const storedEmails = []
 const containingDiv = document.querySelector('.saved-img')
 const firstImage = document.querySelector('#Image-1')
 let ID 
+let emailDisplay
+let emailImageDiv
+let incrementID = 0;
+const refresh = document.querySelector('.refresh-btn')
+const emailInvalidError = document.querySelector('.error-message-container');
+const successMessage = document.querySelector('.success-message')
 
 
-const check = function(){
+
+function  check(){
     if(email.value.match(emailValidation)){
         return true
     }
@@ -32,20 +39,22 @@ const saveEmail = function(){
 }
 
 const addingEmail = function(){
-    let emailImageDiv = document.createElement('div')
-    let emailDisplay = document.createElement('h3')
+    emailImageDiv = document.createElement('div')
+    emailImageDiv.setAttribute("id", incrementID)
+    emailDisplay = document.createElement('h3')
     emailDisplay.textContent = email.value
     emailImageDiv.append(emailDisplay)
     containingDiv.append(emailImageDiv)
+    incrementID++
 }
 
 const addingImage = function(){
-    let onPage = Array.prototype.slice.call(document.querySelector('.saved-img > div'))
-    for(let x = 0; x <= storedEmails.length; x++){
-        let emailSaved = onPage[x].querySelector('h3').innerHTML;
-        if(email === emailSaved){
+    for(let x = 0; x < storedEmails.length; x++){
+        console.log(email.value)
+        console.log(emailDisplay.innerHTML)
+        if(email.value === storedEmails[x]){
             let showImageSaved = document.createElement('img')
-            onPage[x].append(showImageSaved)
+            $(`div#${x}`).append(showImageSaved)
             showImageSaved.setAttribute('src','https://picsum.photos/id/' + ID + '/150/150/' )
         }
     }
@@ -69,14 +78,25 @@ function settingRandomIdUrl(){
 }
 
 
-const allTogether = function(){
-    check();
+function  allTogether(){
+    if(check()){
+        console.log('email working')
+        emailInvalidError.classList.remove('show-message')
+    }else{
+        emailInvalidError.classList.add('show-message')
+        return }
     if(saveEmail() === false){
     addingEmail();
+    successMessage.classList.add('show-message')
+    setTimeout(function() {successMessage.classList.remove('show-message')}, 3000)
    }
    addingImage();
+   successMessage.classList.add('show-message')
+   setTimeout(function() {successMessage.classList.remove('show-message')}, 3000)
    settingRandomIdUrl();
 }
 
 
-assignButton.addEventListener('click', allTogether())
+assignButton.addEventListener('click', allTogether)
+window.onload = settingRandomIdUrl
+refresh.addEventListener('click', settingRandomIdUrl)
