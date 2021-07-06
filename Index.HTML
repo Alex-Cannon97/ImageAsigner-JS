@@ -8,20 +8,26 @@
     </head>
     <body>
         <div class="container">
-            <h1>Assign an image to your Email!</h1>
-            <div class="generated-img">
-                <!-- <img src="https://picsum.photos/300/300?random=1">
-                <img src="https://picsum.photos/300/300?random=2">
-                <img src="https://picsum.photos/300/300?random=3"> -->
-                <img alt="random image" id="Image-1" src="https://picsum.photos/id/123/300/300">
-                <h3 class="refresh">Would you like to change the image?</h3>
-                <button class="refresh-btn">Refresh</button>
+            <div class="title">
+                <h1>Assign an image to your Email!</h1>
+            </div>
+            <div class="image-container">
+                <div class="generated-img">
+                    <!-- <img src="https://picsum.photos/300/300?random=1">
+                    <img src="https://picsum.photos/300/300?random=2">
+                    <img src="https://picsum.photos/300/300?random=3"> -->
+                    <img alt="random image" id="Image-1" src="https://picsum.photos/id/123/300/300">
+                </div>
+                <div class="refresh-div">
+                    <h3 class="refresh">Would you like to change the image?</h3>
+                    <button class="refresh-btn">Refresh</button>
+                </div>
             </div>
             <div class="input">
                 <label for="email">Enter your email:</label>
                 <input type="email" id="email" name="email" placeholder="JohnDoe@email.com">
                 <button id="confirm">Assign</button>
-                <button id=check>Check Images</button>
+                <!-- <button id=check>Check Images</button> -->
                 <div class="error-message-container">
                     <h3 class="error-message">Please enter a valid Email</h3>
                     <div class="tooltip-point"></div>
@@ -35,13 +41,14 @@
                     <div class="tooltip-point"></div>
                 </div>
             </div>
-            <p class="info">Please type an email in the box and then click check, to check the email and image stored!</p>
+            <!-- <p class="info">Please type an email in the box and then click check, to check the email and image stored!</p> -->
             <div class="saved-img">
-                <div class="email-container">
-                    <h3 class="email-name"></h3>
-                </div>
+                <!-- <div class="email-container"> -->
+                    <!-- <h3 class="email-name"></h3>
+                </div> -->
+                <!-- <div class="image-cont"></div> -->
             </div>
         </div>
-        <script src="main.js"></script>
+        <script src="change.js"></script>
     </body>
 </html>

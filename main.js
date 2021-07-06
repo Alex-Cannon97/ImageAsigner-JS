@@ -24,9 +24,12 @@ let storedPairs = [{
     emailForThisImage: 'bob@hotmail.com',
     imageIds: [12, 48, 99],
   },]
+  let storedEmails 
 const checkButton = document.querySelector('#check')
-const div = document.querySelector('.saved-img')
+const div = document.querySelector('.image-cont')
 let emailName = document.querySelector('.email-name')
+let emailContainer = document.querySelector('.email-container')
+const containingDiv = document.querySelector('.saved-img')
 
 const check = function(){
     if(email.value.match(emailValidation)){
@@ -42,7 +45,7 @@ const addNewEmail = function(){
     const emailAndImage = {}
     emailAndImage.emailForThisImage = email.value;
     emailAndImage.imageIds = [idOfFirstImage];
-    storedPairs.push(emailAndImage);
+     storedPairs.push(emailAndImage);
 }
 
 function addImageToEmail(emailAdress, imageId){
@@ -52,7 +55,7 @@ function addImageToEmail(emailAdress, imageId){
         const pair = storedPairs[x];
         if (pair.emailForThisImage === emailAdress) {
           // once found add image id to that pair  
-          pair.imageIds.push(imageId)
+        //   pair.imageIds.push(imageId)
         }
     }
 }
@@ -87,8 +90,11 @@ function tryToAssignEmail(){
         successMessage.classList.add('show-message')
         addNewEmail();
     }
-    email.value = '';
+    // email.value = '';
     settingRandomIdUrl()
+     //clearData()
+     createImagesForEmail(email.value)
+   
 }
 
 assignButton.addEventListener('click', tryToAssignEmail)
@@ -108,25 +114,33 @@ function settingRandomIdUrl(){
 window.onload = settingRandomIdUrl
 
 refresh.onclick = settingRandomIdUrl
-
  
 
 function createImagesForEmail(emailValue){
-    for (let x = 0; x < storedPairs.length; x++) {
-        const pair = storedPairs[x];
-        if (pair.emailForThisImage === emailValue) {
-            for (let i = 0; i < pair.imageIds.length; i++){
-            //console.log(pair.imageIds[i])
+         for (let x = 0; x < storedPairs.length; x++) {
+             const pair = storedPairs[x];
+            if (pair.emailForThisImage === emailValue) {
+                for (let i = 0; i < pair.imageIds.length; i++){
+             //console.log(pair.imageIds[i])
             //console.log('https://picsum.photo/id/' + pair.imageIds[i] +'/150/150/')
-            emailName.textContent = email.value
+            let emailImageDiv = document.createElement('div')
+            if(emailsStoredContains() === false ){
+            let emailDisplay = document.createElement('h3')
+            emailDisplay.textContent = email.value
+            emailImageDiv.append(emailDisplay)
+        }
+            containingDiv.append(emailImageDiv)
             let showImageSaved = document.createElement('img')
-            div.append(showImageSaved)
+            emailImageDiv.append(showImageSaved)
             showImageSaved.setAttribute('src','https://picsum.photos/id/' + pair.imageIds[i] + '/150/150/' )
             
             }
         }
     }
  }
+
+
+
 
 function clearData(allData){
     let generatedImages = document.querySelectorAll('.saved-img img')
@@ -135,10 +149,11 @@ function clearData(allData){
     }
 }
 
-checkButton.addEventListener('click', function(){
-    successMessage.classList.remove('show-message')
-    successMessage2.classList.remove('show-message')
-    clearData()
-    createImagesForEmail(email.value) 
-})
+// checkButton.addEventListener('click', function(){
+//     successMessage.classList.remove('show-message')
+//     successMessage2.classList.remove('show-message')
+    //clearData()
+ 
+//})
 
+    //createImagesForEmail(email.value)

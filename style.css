@@ -1,41 +1,61 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: aquamarine;
 }
-
 
 .container{
-    background-color: aquamarine;
-    height: 100vh;
-    width: 100vw;
+ width: 100%;
+ /* height: 100vh; */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: aquamarine;
+ flex-direction: column;
 }
 
-.container > *{
-    left: 50%;
-    transform: translate(-50%, 0);
+.title{
+ width: 100%;
+ margin-top: 100px;
+ display: flex;
+ justify-content: center;
 }
 
 h1{
     font-size: 40px;
     font-family: sans-serif;
-    position: fixed;
-    top: 5%;
     border-bottom: 3px solid;
 }
 
+.image-container{
+   width: auto;
+   height: auto;
+   margin-top: 100px;
+   margin-left: 100px;
+
+}
+
+.generated-img{
+    margin-bottom: 40px;
+}
+
+.refresh-div{
+    width: 150px;
+    margin-left: 380px;
+    margin-top: -330px;
+}
+
+
 .input{
-    display: flex;
-    position: fixed;
-    top: 60%;
-    justify-content: center;
+ display: flex;
+ margin-top: 230px;
+ margin-right: 100px;
 }
 
 label{
     font-size: 20px;
     font-family: sans-serif;
     font-weight: 600;
-    margin-right: 5px;
-    margin-top: 6px;
 }
 
 input[type="email"]{
@@ -56,28 +76,18 @@ input[type="email"]{
     cursor: pointer;
 }
 
-.info{
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  position: fixed;
-  bottom: 310px;
-}
-
 
 .error-message{
  color: red;
- bottom: 140%;
- position: fixed;
- right: 12%;
  border: 2px solid black;
  padding: 10px;
  background-color: white;
- z-index: 1;
  text-align: center;
+ margin-top: -50px;
+ margin-left: -230px;
 }
 
-.tooltip-point{
+/* .tooltip-point{
     width: 38px;
     min-height: 30px;
     position: fixed;
@@ -88,29 +98,27 @@ input[type="email"]{
     z-index: 2;
     overflow: hidden;
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
-}
+} */
 
 .error-message-container {
     display: none;
 }
 
-.move-right{
+/* .move-right{
     position: fixed;
     right: -4%;
-}
+} */
 
 .success{
     color: green;
-    position: fixed;
     border: 2px solid green;
     padding: 10px;
     background-color: white;
-    top: 130%;
-    left: 21%;
-    z-index: 1;
+    margin-top: -50px;
+    margin-left: -313px;
 }
 
-.top-tooltip{
+/* .top-tooltip{
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
     z-index: 2;
     width: 38px;
@@ -119,7 +127,7 @@ input[type="email"]{
     background-color: white;
     top: 110%;
     left: 55%;
-}
+} */
 
 .success-message ,.success-message2-container{
     display: none;
@@ -129,13 +137,7 @@ input[type="email"]{
     display: block !important;
 }
 
-.generated-img{
-    display: flex;
-    position: fixed;
-    align-items: center;
-    top: 22%;
-    
-}
+
 
 .generated-img img{
     margin-left: 10px;
@@ -145,30 +147,17 @@ input[type="email"]{
 }
 
 .refresh{
-    position: absolute;
-    top: 4%;
-    left: 350px; 
     font-size: 20px;
     font-weight: 600;
     font-family: sans-serif;
-    width: 200px;
 }
 
-.refresh-btn{
-    position: absolute;
-    top: 30%;
-    left: 350px;
-}
-
-#check{
-    margin-left: 5px;
-}
 
 .saved-img{
-    position: fixed;
-    width: 1000px;
-    height: 200px;
-    bottom: 10%;
+ display: flex;
+ width: auto;
+ margin-top: 100px;
+ align-items: center;
 }
 
 .saved-img img{
@@ -177,25 +166,15 @@ input[type="email"]{
     box-shadow: 10px 10px 8px #00000075;
     margin-left: 10px;
     margin-top: 10px;
-    position: relative;
-    left: 26%;
-    top: 7%;
 }
 
 .email-name{
-    position: fixed;
+    margin-left: 30px;
     font-size: 25px;
+    padding-bottom: 30px;
 
 }
 
-.email-container{
-    margin: 10px;
-    height: 91px;
-    top: 20%;
-    left: -59px;
-    display: inline-block;
-    margin-right: 60px;
-}
 
 .success-message2{
     color: green;
@@ -208,4 +187,9 @@ input[type="email"]{
     z-index: 1;
     text-align: center;
 
+}
+
+.image-cont{
+    width: auto;
+    height: auto;
 }
